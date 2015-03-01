@@ -1,0 +1,34 @@
+<h1>Hello, Rails!</h1>
+<%= link_to 'My Blog', controller: 'articles' %>
+<%= link_to 'New article', new_article_path %>
+<button class = 'abcsort'>Sort by alphabet</button>
+<button class = 'timesort'>Sort by creation time</button>	
+<% if cookies[:sort] == 'abc' %>
+  <% art = @articles.sort_by { |item|%>
+    <% item[:title]%>
+  <% } %>
+<% end %>
+<% else if cookies[:sort] == 'time' %>
+  <% art = @articles.sort_by { |item|%>
+    <% item[:created_at] %>
+  <% } %>
+<% end %>
+
+<table class = "tb">
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th colspan = "3"></th>
+  </tr> 
+  <% art.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.text %></td>
+      <td><%= link_to "Show ", article_path(article) %></td>
+      <td><%= link_to "Edit ", edit_article_path(article) %></td>
+      <td><%= link_to "Destroy", article_path(article), 
+	      method: :delete,
+	      data: {confirm: "Are you sure?"} %></td> 
+   </tr>
+  <% end %>
+</table>
