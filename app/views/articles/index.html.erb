@@ -4,12 +4,12 @@
 <button class = 'abcsort'>Sort by alphabet</button>
 <button class = 'timesort'>Sort by creation time</button>	
 <% if cookies[:sort] == 'abc' %>
-  <% art = @articles.sort_by { |item|%>
+  <% @articles = Article.all.sort_by{ |item|%>
     <% item[:title]%>
   <% } %>
 <% end %>
-<% else if cookies[:sort] == 'time' %>
-  <% art = @articles.sort_by { |item|%>
+<% if cookies[:sort] == 'time' %>
+  <% @articles = Article.all.sort_by { |item|%>
     <% item[:created_at] %>
   <% } %>
 <% end %>
@@ -20,7 +20,7 @@
     <th>Text</th>
     <th colspan = "3"></th>
   </tr> 
-  <% art.each do |article| %>
+  <% @articles.each do |article| %>
     <tr>
       <td><%= article.title %></td>
       <td><%= article.text %></td>
