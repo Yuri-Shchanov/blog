@@ -17,6 +17,7 @@ test "should create article" do
 end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 test "index should render correct template and layout" do
   get :index
   assert_template :index
@@ -29,4 +30,6 @@ end
 
 =======
 >>>>>>> 4147c00263c3bb7bbed09682ec331a10f6d4bbc4
+=======
+>>>>>>> 4147c00... changed @articles
 end
