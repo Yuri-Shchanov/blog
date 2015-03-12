@@ -16,6 +16,7 @@ test "should create article" do
   assert_redirected_to article_path(assigns(:article))
 end
 
+<<<<<<< HEAD
 test "index should render correct template and layout" do
   get :index
   assert_template :index
@@ -26,4 +27,6 @@ test "should route to article" do
   assert_routing '/articles/1', {controller: "articles", action: "show", id: "1"}
 end
 
+=======
+>>>>>>> 4147c00263c3bb7bbed09682ec331a10f6d4bbc4
 end
