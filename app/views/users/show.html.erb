@@ -1,0 +1,12 @@
+<p>
+  <strong>Title:</strong>
+  <%= @user.name %>
+</p>
+ 
+<p>
+  <strong>Time:</strong>
+  <%= @user.created_at %>
+</p>
+
+<%= link_to "Back", users_path %>
+<%= link_to "Edit", edit_user_path(@user) %>

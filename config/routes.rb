@@ -6,11 +6,12 @@ Rails.application.routes.draw do
   get 'user/index'
 
 
+resources :users do
   resources :articles do
 	resources :comments
   end
-
- 
+end
+   
   root 'welcome#index'
 #end
   # The priority is based upon order of creation: first created -> highest priority.
