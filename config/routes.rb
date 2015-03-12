@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  get 'user/index'
+
 #Rails.application.routes.draw do
- 
+
+  get 'user/index'
+
+resources :users do 
   resources :articles do
 	resources :comments
   end
-	
+end
  
   root 'welcome#index'
 #end
