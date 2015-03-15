@@ -1,1 +1,8 @@
 <h1>Hi, user </h1>
+
+<% if user_signed_in? %>
+    <span> hi, <%= current_user.email %></span>
+    <%= link_to 'exit', destroy_user_session_path, :method => :delete %>
+<% else %>
+    <%= link_to 'enter', new_user_session_path %> or <%= link_to 'registration', new_user_registration_path %>
+<% end %>

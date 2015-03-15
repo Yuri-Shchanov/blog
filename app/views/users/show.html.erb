@@ -1,13 +1,10 @@
 <h1> My profile </h1>
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
- 
-<p>
-  <strong>Time:</strong>
-  <%= @user.created_at %>
-</p>
 
+
+<h2>Add article:</h2>
+
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 <%= link_to "Back", users_path %>
 <%= link_to "Edit", edit_user_path(@user) %>

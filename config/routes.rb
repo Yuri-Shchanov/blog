@@ -1,18 +1,21 @@
-Rails.application.routes.draw do
-  get 'user/index'
-
 #Rails.application.routes.draw do
+  #get 'welcome/index'
 
-  get 'user/index'
+Rails.application.routes.draw do
+  get 'welcome/index'
+
+  devise_for :users
+  get 'users/profile'
+
+  root 'welcome#index'
+  get 'users/profile', as: 'user_root'
 
 
-resources :users do
+
   resources :articles do
 	resources :comments
   end
-end
-   
-  root 'welcome#index'
+  resources :users
 #end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
