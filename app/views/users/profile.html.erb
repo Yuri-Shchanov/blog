@@ -1,4 +1,12 @@
-<h1>Persons#profile</h1>
+<h1>My profile</h1>
+<%=link_to 'users', users_path%>
+
+<h2>Articles</h2>
+<%=render @user.articles %>
+
+<h2>Add article:</h2>
+<%= render 'articles/form' %>
+
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-<p>Find me in app/views/persons/profile.html.erb</p>
+

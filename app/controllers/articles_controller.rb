@@ -3,12 +3,12 @@ class ArticlesController < ApplicationController
 	 # http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
 		
 	def index
-    	@articles = Article.all
-  	end
+    	@articles = Article.where(:user_id => current_user.id)
+  end
 
 	def show
    	 	@article = Article.find(params[:id])
-  	end
+  end
 
 	def new
   		@article = Article.new
@@ -19,8 +19,9 @@ class ArticlesController < ApplicationController
 	end
 
 	def create
- 		@article = Article.new(article_params)
- 
+    @user = User.find(params[:user_id])
+ 		@article = @user.articles.create(article_params)
+
   		if @article.save
     			redirect_to @article
   		else
@@ -38,8 +39,8 @@ class ArticlesController < ApplicationController
 	end
 
 	
-     	def destroy
-		@article =  Article.find(params[:id])
+  def destroy
+    @article =  Article.find(params[:id])
 		@article.destroy
 		redirect_to articles_path
 	end
