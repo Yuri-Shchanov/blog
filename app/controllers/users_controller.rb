@@ -6,10 +6,12 @@ class UsersController < ApplicationController
   def profile
     @user = User.new
     @article = Article.new
+    redirect_to current_user
   end
 
 	def show
    	 	@user = User.find(params[:id])
+      @article = Article.new
  	end
 
 	def new
@@ -48,7 +50,7 @@ class UsersController < ApplicationController
 
 	private
   		def user_params
-    		params.require(:user).permit(:name, :pass)
+    		params.require(:user).permit(:name, :id)
   	end
 end
 

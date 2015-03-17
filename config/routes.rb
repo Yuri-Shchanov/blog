@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'users/profile'
 
   root 'welcome#index'
-  get 'users/profile', as: 'user_root'
+  get '/users/profile', as: 'user_root'
 
 
   resources :users do
