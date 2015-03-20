@@ -1,0 +1,30 @@
+<% if request.url != "http://localhost:3000/users/" + current_user.id.to_s + "/articles/" + @article[:id].to_s %>
+    <%= render 'article' %>
+<% end %>
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @article.text %>
+</p>
+
+<h2>Add a comment:</h2>
+<%= form_for @comment, url: {action: "create"} do |f| %>
+    <p>
+      <%= f.label :commenter %><br>
+      <%= f.text_field :commenter %>
+    </p>
+    <p>
+      <%= f.label :body %><br>
+      <%= f.text_area :body %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>
+
+<= link_to 'Back', articles_path %> |
+<= link_to 'Edit', edit_article_path(@article) %>
