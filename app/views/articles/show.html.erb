@@ -11,12 +11,16 @@
   <%= @article.text %>
 </p>
 
+<% if @article.comments.exists?%>
+    <h2>Comments:</h2>
+    <%= render @article.comments %>
+<% end %>
+
+
 <h2>Add a comment:</h2>
-<%= form_for @comment, url: {action: "create"} do |f| %>
-    <p>
-      <%= f.label :commenter %><br>
-      <%= f.text_field :commenter %>
-    </p>
+<% @url = @article.id.to_s + "/comments" %>
+<%= form_for(@comment, :url => @url) do |f| %>
+    <%= f.hidden_field :commenter, :value => @user.name %>
     <p>
       <%= f.label :body %><br>
       <%= f.text_area :body %>

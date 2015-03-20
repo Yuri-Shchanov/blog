@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
 
 	def show
    	 	@article = Article.find(params[:id])
+      @user = User.find(params[:user_id])
       @comment = Comment.new
   end
 
@@ -26,7 +27,7 @@ class ArticlesController < ApplicationController
   		if @article.save
     			redirect_to @user
   		else
-    			render 'new'
+    			render '_form'
   		end
 	end
 	

@@ -1,6 +1,6 @@
 <p>
   <strong>Commenter:</strong>
-  <%= comment.commenter %>
+  <%= comment.commenter = @user.name.to_s%>
 </p>
  
 <p>
@@ -9,7 +9,7 @@
 </p>
 
 <p>
-  <%= link_to 'Destroy Comment', [comment.article, comment],
+  <%= link_to 'Destroy Comment', '/users/:user_id/articles/:article_id/comments/:id',
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
 </p>
