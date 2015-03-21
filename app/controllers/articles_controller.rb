@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 	
 	 # http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
-		
+  before_action :authenticate_user!
 	def index
     	@articles = Article.where(:user_id => current_user.id)
   end
@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def edit
+    @user = User.find(params[:user_id])
 		@article = Article.find(params[:id])
 	end
 

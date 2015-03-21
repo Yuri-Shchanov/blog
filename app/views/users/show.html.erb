@@ -1,18 +1,19 @@
-<% if current_user.id == @user.id %>
-    <h1>My profile</h1>
-<% else %>
-    <h1><%=@user.name%>'s profile</h1>
-<% end %>
-<%=link_to 'users', users_path%>
+    <% if current_user.id == @user.id %>
+        <h1>My profile</h1>
+    <% else %>
+        <h1><%=@user.name%>'s profile</h1>
+    <% end %>
+    <%= link_to 'exit', destroy_user_session_path, :method => :delete %><br>
+    <%=link_to 'users', users_path%>
 
-<% if @user.articles.exists?%>
-    <h2>Articles</h2>
-    <%= render @user.articles %>
-<% end %>
+    <% if @user.articles.exists?%>
+        <h2>Articles</h2>
+        <%= render @user.articles %>
+    <% end %>
 
 
-<h2>Add article:</h2>
-<%= render 'articles/form' %>
+    <h2>Add article:</h2>
+    <%= render 'articles/form' %>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>

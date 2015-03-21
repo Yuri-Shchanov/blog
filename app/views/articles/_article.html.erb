@@ -1,6 +1,5 @@
-<% @path =  current_user.id.to_s + "/articles/" + article[:id].to_s %>
+<% @path =  article.user_id.to_s + "/articles/" + article[:id].to_s %>
 <p>
-    <strong>Title:</strong>
     <%= article.sender %> sayd:
     <%=link_to article.title, @path, method: :get%>
 

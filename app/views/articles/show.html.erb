@@ -1,4 +1,4 @@
-<% if request.url != "http://localhost:3000/users/" + current_user.id.to_s + "/articles/" + @article[:id].to_s %>
+<% if request.url != "http://localhost:3000/users/" + @article.user_id.to_s + "/articles/" + @article[:id].to_s %>
     <%= render 'article' %>
 <% end %>
 <p>
@@ -29,5 +29,5 @@
     </p>
 <% end %>
 
-<= link_to 'Back', articles_path %> |
-<= link_to 'Edit', edit_article_path(@article) %>
+<%= link_to 'Back', user_path(@user) %> |
+<%= link_to 'Edit', edit_user_article_path(@user, @article) %>
