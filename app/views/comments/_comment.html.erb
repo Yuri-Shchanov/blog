@@ -1,15 +1,15 @@
 <p>
   <strong>Commenter:</strong>
-  <%= comment.commenter = @user.name.to_s%>
+  <%= comment.commenter%>
 </p>
  
 <p>
   <strong>Comment:</strong>
   <%= comment.body %>
 </p>
-
+<% @url = '/users/' + @user.id.to_s + '/articles/' + @article.id.to_s + '/comments/' + comment.id.to_s %>
 <p>
-  <%= link_to 'Destroy Comment', '/users/:user_id/articles/:article_id/comments/:id',
+  <%= link_to 'Destroy Comment', @url,
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
 </p>
